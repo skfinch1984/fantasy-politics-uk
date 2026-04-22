@@ -78,14 +78,29 @@ body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:var(--bg-p
 .mp-stat{display:flex;flex-direction:column;align-items:center}
 .mp-stat .stat-value{font-weight:700;font-size:14px;color:var(--text-primary)}
 .mp-stat .stat-label{color:var(--text-muted);font-size:9px;text-transform:uppercase}
-.pitch{background:linear-gradient(180deg,#1a3a1a 0%,#0d260d 100%);border-radius:12px;padding:20px 8px;min-height:300px;position:relative;border:2px solid #2a5a2a;margin-bottom:16px;overflow:hidden}
-.pitch::before{content:'';position:absolute;top:50%;left:10%;right:10%;height:1px;background:rgba(255,255,255,0.1)}
-.pitch-row{display:flex;justify-content:center;gap:8px;margin-bottom:16px;flex-wrap:wrap}
-.pitch-player{text-align:center;width:70px;cursor:pointer;position:relative}
-.pitch-player .player-shirt{width:44px;height:44px;border-radius:50%;margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:white;border:2px solid rgba(255,255,255,0.3)}
-.pitch-player .player-name{font-size:10px;font-weight:600;line-height:1.1;margin-bottom:1px}
-.pitch-player .player-points{font-size:11px;font-weight:700;color:var(--accent-gold)}
-.pitch-player .captain-badge{position:absolute;top:-2px;right:6px;background:var(--accent-gold);color:#111;width:16px;height:16px;border-radius:50%;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.chamber{background:linear-gradient(180deg,#2e1f0f 0%,#1a1108 100%);border-radius:12px;padding:20px 12px 16px;min-height:320px;position:relative;border:2px solid #8b6b3a;margin-bottom:16px;overflow:hidden}
+.chamber-speaker{text-align:center;color:var(--accent-gold);font-family:Georgia,serif;font-size:11px;letter-spacing:2px;padding-bottom:10px;margin-bottom:14px;border-bottom:1px solid rgba(201,169,78,0.25);text-transform:uppercase}
+.chamber-speaker .chair-icon{font-size:22px;display:block;margin-bottom:2px}
+.chamber-body{display:grid;grid-template-columns:1fr 4px 1fr;gap:0}
+.chamber-aisle{background:repeating-linear-gradient(to bottom,rgba(201,169,78,0.35),rgba(201,169,78,0.35) 4px,transparent 4px,transparent 10px)}
+.chamber-side{display:flex;flex-direction:column;gap:8px;padding:0 6px}
+.chamber-side.government{align-items:flex-end}
+.chamber-side.opposition{align-items:flex-start}
+.chamber-side-label{font-size:9px;color:rgba(201,169,78,0.75);text-transform:uppercase;letter-spacing:1.5px;font-weight:700;margin-bottom:2px}
+.chamber-bench{display:flex;gap:4px;flex-wrap:wrap;max-width:100%}
+.chamber-side.government .chamber-bench{justify-content:flex-end}
+.chamber-side.opposition .chamber-bench{justify-content:flex-start}
+.chamber-mp{text-align:center;width:56px;cursor:pointer;position:relative}
+.chamber-mp .mp-shirt{width:38px;height:38px;border-radius:50%;margin:0 auto 3px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:white;border:2px solid rgba(255,255,255,0.25)}
+.chamber-mp .mp-label{font-size:9px;font-weight:600;line-height:1.1;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chamber-mp .mp-pts{font-size:10px;font-weight:700;color:var(--accent-gold)}
+.chamber-mp .captain-badge{position:absolute;top:-2px;right:4px;background:var(--accent-gold);color:#111;width:14px;height:14px;border-radius:50%;font-size:8px;font-weight:800;display:flex;align-items:center;justify-content:center;z-index:1}
+.chamber-mp .captain-badge.vc{background:var(--accent-blue);color:white}
+.chamber-crossbench-wrap{margin-top:16px;padding-top:12px;border-top:1px solid rgba(201,169,78,0.25)}
+.chamber-crossbench{display:flex;gap:4px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+.great-offices-status{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px}
+.office-badge{font-size:10px;padding:4px 9px;border-radius:12px;background:var(--bg-secondary);border:1px solid var(--border);color:var(--text-muted);white-space:nowrap;font-weight:600}
+.office-badge.filled{background:rgba(201,169,78,0.15);border-color:var(--accent-gold);color:var(--accent-gold)}
 .team-summary{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
 .summary-stat{background:var(--bg-card);border-radius:10px;padding:12px;text-align:center;border:1px solid var(--border)}
 .summary-stat .stat-number{font-size:22px;font-weight:800;color:var(--accent-gold)}
@@ -136,7 +151,7 @@ body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:var(--bg-p
 .card{animation:fadeIn 0.3s ease-out}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
 .points-hero .big-number{animation:pulse 2s infinite}
-@media(min-width:768px){.dashboard-grid{grid-template-columns:2fr 1fr}.mp-grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}.team-summary{grid-template-columns:repeat(4,1fr)}.rules-grid{grid-template-columns:1fr 1fr}.filters{flex-direction:row;align-items:center}.filter-input,.filter-select{width:auto}.modal{border-radius:16px;border-bottom:1px solid var(--accent-gold);max-width:600px}.modal-overlay{align-items:center;padding:24px}.points-hero .big-number{font-size:72px}.pitch-player{width:100px}.pitch-player .player-shirt{width:52px;height:52px;font-size:16px}}
+@media(min-width:768px){.dashboard-grid{grid-template-columns:2fr 1fr}.mp-grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}.team-summary{grid-template-columns:repeat(4,1fr)}.rules-grid{grid-template-columns:1fr 1fr}.filters{flex-direction:row;align-items:center}.filter-input,.filter-select{width:auto}.modal{border-radius:16px;border-bottom:1px solid var(--accent-gold);max-width:600px}.modal-overlay{align-items:center;padding:24px}.points-hero .big-number{font-size:72px}.chamber-mp{width:72px}.chamber-mp .mp-shirt{width:48px;height:48px;font-size:14px}}
     </style>
 </head>
 <body>
@@ -236,6 +251,7 @@ body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:var(--bg-p
                         <div class="squad-count">Squad: <strong id="pick-count">0</strong>/11</div>
                     </div>
                 </div>
+                <div class="great-offices-status" id="offices-status"></div>
                 <div id="validation-errors" class="validation-errors" style="display:none;"><ul id="error-list"></ul></div>
                 <div class="mp-grid" id="mp-grid"></div>
                 <div style="margin-top:16px;text-align:center;">
@@ -247,9 +263,9 @@ body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:var(--bg-p
         <div class="page" id="page-my-team">
             <div class="team-summary" id="team-summary"></div>
             <div class="card">
-                <div class="card-header"><span class="card-title">The Pitch</span></div>
-                <div class="pitch" id="team-pitch">
-                    <div class="empty-state"><div class="empty-icon">🏟️</div><h3>No Squad Yet</h3><p>Pick your team first!</p></div>
+                <div class="card-header"><span class="card-title">The Chamber</span></div>
+                <div class="chamber" id="team-chamber">
+                    <div class="empty-state"><div class="empty-icon">🏛️</div><h3>No Squad Yet</h3><p>Pick your team first!</p></div>
                 </div>
             </div>
             <div class="card">
@@ -280,6 +296,7 @@ body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:var(--bg-p
                     <p>• <strong>Squad:</strong> 11 MPs, £100m budget</p>
                     <p>• <strong>Max 4</strong> from any party</p>
                     <p>• <strong>Must have:</strong> 1+ Labour, 1+ Conservative, 1+ Minor Party</p>
+                    <p>• <strong>Great Offices:</strong> cover all five — PM/Leader of Opposition, Chancellor/Shadow, Home/Shadow, Foreign/Shadow, Defence/Shadow</p>
                     <p>• <strong>Captain:</strong> 2x pts / <strong>Vice-Captain:</strong> 1.5x pts</p>
                     <p>• <strong>Transfers:</strong> 2 free/week, then -4pts each</p>
                 </div>
@@ -297,64 +314,64 @@ body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:var(--bg-p
 <script>
 // ======= EMBEDDED DATA =======
 const MPS = [
-  {id:1,name:"Keir Starmer",party:"Labour",constituency:"Holborn and St Pancras",role:"Prime Minister",price:15.0,position:"front",form:[12,15,8,20,11]},
-  {id:2,name:"Rachel Reeves",party:"Labour",constituency:"Leeds West and Pudsey",role:"Chancellor of the Exchequer",price:13.0,position:"front",form:[10,8,14,9,12]},
-  {id:3,name:"Angela Rayner",party:"Labour",constituency:"Ashton-under-Lyne",role:"Backbencher (Resigned)",price:9.0,position:"back",form:[9,11,-10,3,2]},
-  {id:4,name:"David Lammy",party:"Labour",constituency:"Tottenham",role:"Deputy Prime Minister & Justice Secretary",price:13.0,position:"front",form:[7,9,11,14,13]},
-  {id:5,name:"Yvette Cooper",party:"Labour",constituency:"Pontefract, Castleford and Knottingley",role:"Foreign Secretary",price:12.0,position:"front",form:[8,10,9,12,11]},
-  {id:6,name:"Wes Streeting",party:"Labour",constituency:"Ilford North",role:"Health Secretary",price:10.5,position:"mid",form:[11,7,13,9,8]},
-  {id:7,name:"Pat McFadden",party:"Labour",constituency:"Wolverhampton South East",role:"Backbencher",price:7.0,position:"back",form:[5,7,6,4,3]},
-  {id:8,name:"Ed Miliband",party:"Labour",constituency:"Doncaster North",role:"Energy Secretary",price:9.5,position:"mid",form:[8,6,10,7,9]},
-  {id:9,name:"Bridget Phillipson",party:"Labour",constituency:"Houghton and Sunderland South",role:"Education Secretary",price:9.0,position:"back",form:[6,8,5,7,9]},
-  {id:10,name:"Lisa Nandy",party:"Labour",constituency:"Wigan",role:"Culture Secretary",price:8.5,position:"back",form:[5,7,6,4,8]},
-  {id:11,name:"Shabana Mahmood",party:"Labour",constituency:"Birmingham Ladywood",role:"Home Secretary",price:11.5,position:"front",form:[4,6,9,12,10]},
-  {id:12,name:"John Healey",party:"Labour",constituency:"Rawmarsh and Conisbrough",role:"Defence Secretary",price:8.5,position:"back",form:[6,5,8,7,4]},
-  {id:13,name:"Hilary Benn",party:"Labour",constituency:"Leeds South",role:"Northern Ireland Secretary",price:7.5,position:"back",form:[4,3,5,6,4]},
-  {id:14,name:"Diane Abbott",party:"Labour",constituency:"Hackney North and Stoke Newington",role:"Backbencher",price:7.0,position:"back",form:[3,8,2,10,5]},
-  {id:15,name:"Zarah Sultana",party:"Labour",constituency:"Coventry South",role:"Backbencher",price:6.5,position:"back",form:[7,5,9,4,8]},
-  {id:51,name:"Liz Kendall",party:"Labour",constituency:"Leicester West",role:"Work and Pensions Secretary",price:9.5,position:"mid",form:[6,8,7,9,8]},
-  {id:52,name:"Peter Kyle",party:"Labour",constituency:"Hove and Portslade",role:"Business and Trade Secretary",price:9.0,position:"mid",form:[5,7,8,6,7]},
-  {id:53,name:"Steve Reed",party:"Labour",constituency:"Streatham and Croydon North",role:"Housing Secretary",price:9.0,position:"mid",form:[6,5,8,7,9]},
-  {id:54,name:"Darren Jones",party:"Labour",constituency:"Bristol North West",role:"Chancellor of the Duchy of Lancaster",price:9.5,position:"mid",form:[5,7,9,8,10]},
-  {id:55,name:"Jonathan Reynolds",party:"Labour",constituency:"Stalybridge and Hyde",role:"Chief Whip",price:8.5,position:"mid",form:[4,6,5,7,6]},
-  {id:56,name:"Nick Thomas-Symonds",party:"Labour",constituency:"Torfaen",role:"Paymaster General",price:8.0,position:"mid",form:[5,6,4,7,5]},
-  {id:57,name:"James Murray",party:"Labour",constituency:"Ealing North",role:"Chief Secretary to the Treasury",price:8.5,position:"mid",form:[4,6,7,5,8]},
-  {id:58,name:"Emma Reynolds",party:"Labour",constituency:"Walsall and Bloxwich",role:"Environment Secretary",price:8.5,position:"mid",form:[5,7,6,8,7]},
-  {id:16,name:"Kemi Badenoch",party:"Conservative",constituency:"North West Essex",role:"Leader of the Opposition",price:13.5,position:"front",form:[14,11,16,13,10]},
-  {id:17,name:"Rishi Sunak",party:"Conservative",constituency:"Richmond and Northallerton",role:"Backbencher",price:12.0,position:"front",form:[5,3,4,2,6]},
-  {id:18,name:"James Cleverly",party:"Conservative",constituency:"Braintree",role:"Shadow Home Secretary",price:10.0,position:"mid",form:[8,9,7,10,6]},
-  {id:19,name:"Jeremy Hunt",party:"Conservative",constituency:"Godalming and Ash",role:"Backbencher",price:9.5,position:"mid",form:[6,4,7,5,8]},
-  {id:20,name:"Priti Patel",party:"Conservative",constituency:"Witham",role:"Backbencher",price:8.5,position:"back",form:[5,3,7,4,6]},
-  {id:21,name:"Suella Braverman",party:"Conservative",constituency:"Fareham and Waterlooville",role:"Backbencher",price:9.0,position:"mid",form:[8,12,6,10,9]},
-  {id:22,name:"Robert Jenrick",party:"Conservative",constituency:"Newark",role:"Shadow Chancellor",price:10.5,position:"front",form:[9,11,8,7,10]},
-  {id:23,name:"Mel Stride",party:"Conservative",constituency:"Central Devon",role:"Shadow Work and Pensions",price:7.5,position:"back",form:[4,5,3,6,4]},
-  {id:24,name:"Andrew Mitchell",party:"Conservative",constituency:"Sutton Coldfield",role:"Backbencher",price:7.0,position:"back",form:[3,4,5,3,4]},
-  {id:25,name:"Penny Mordaunt",party:"Conservative",constituency:"Portsmouth North",role:"Backbencher",price:8.0,position:"mid",form:[5,6,4,7,5]},
-  {id:26,name:"Ed Davey",party:"Liberal Democrats",constituency:"Kingston and Surbiton",role:"Party Leader",price:10.0,position:"front",form:[10,12,8,14,11]},
-  {id:27,name:"Daisy Cooper",party:"Liberal Democrats",constituency:"St Albans",role:"Deputy Leader",price:8.0,position:"mid",form:[7,6,8,5,9]},
-  {id:28,name:"Layla Moran",party:"Liberal Democrats",constituency:"Oxford West and Abingdon",role:"Foreign Affairs Spokesperson",price:7.5,position:"mid",form:[6,8,5,7,6]},
-  {id:29,name:"Munira Wilson",party:"Liberal Democrats",constituency:"Twickenham",role:"Education Spokesperson",price:7.0,position:"back",form:[5,4,6,5,7]},
-  {id:30,name:"Tim Farron",party:"Liberal Democrats",constituency:"Westmorland and Lonsdale",role:"Backbencher",price:6.5,position:"back",form:[4,6,3,5,7]},
-  {id:31,name:"Stephen Flynn",party:"SNP",constituency:"Aberdeen South",role:"Westminster Leader",price:9.0,position:"front",form:[9,11,7,10,8]},
-  {id:32,name:"Joanna Cherry",party:"SNP",constituency:"Edinburgh South West",role:"Backbencher",price:7.5,position:"mid",form:[6,8,10,5,7]},
-  {id:33,name:"Pete Wishart",party:"SNP",constituency:"Perth and Kinross-shire",role:"Backbencher",price:6.5,position:"back",form:[4,5,3,6,4]},
-  {id:34,name:"Brendan O'Hara",party:"SNP",constituency:"Argyll, Bute and South Lochaber",role:"Backbencher",price:6.0,position:"back",form:[3,4,5,3,4]},
-  {id:35,name:"Nigel Farage",party:"Reform UK",constituency:"Clacton",role:"Party Leader",price:11.0,position:"front",form:[15,8,18,5,12]},
-  {id:36,name:"Lee Anderson",party:"Reform UK",constituency:"Ashfield",role:"Backbencher",price:8.0,position:"mid",form:[9,6,12,4,10]},
-  {id:37,name:"Richard Tice",party:"Reform UK",constituency:"Boston and Skegness",role:"Backbencher",price:7.5,position:"mid",form:[6,5,8,4,7]},
-  {id:38,name:"Rupert Lowe",party:"Reform UK",constituency:"Great Yarmouth",role:"Backbencher",price:6.0,position:"back",form:[3,5,4,6,3]},
-  {id:39,name:"Adrian Ramsay",party:"Green Party",constituency:"Waveney Valley",role:"Co-Leader",price:8.5,position:"front",form:[8,10,7,9,6]},
-  {id:40,name:"Carla Denyer",party:"Green Party",constituency:"Bristol Central",role:"Co-Leader",price:8.0,position:"front",form:[7,9,6,8,7]},
-  {id:41,name:"Sian Berry",party:"Green Party",constituency:"Brighton Pavilion",role:"Backbencher",price:7.0,position:"mid",form:[5,7,4,6,5]},
-  {id:42,name:"Ellie Shercliff",party:"Green Party",constituency:"North Herefordshire",role:"Backbencher",price:6.0,position:"back",form:[3,4,5,3,4]},
-  {id:43,name:"Liz Saville Roberts",party:"Plaid Cymru",constituency:"Dwyfor Meirionnydd",role:"Westminster Leader",price:7.0,position:"front",form:[6,8,5,7,6]},
-  {id:44,name:"Ben Lake",party:"Plaid Cymru",constituency:"Ceredigion Preseli",role:"Backbencher",price:6.0,position:"mid",form:[4,5,3,6,4]},
-  {id:45,name:"Sammy Wilson",party:"DUP",constituency:"East Antrim",role:"Backbencher",price:6.5,position:"mid",form:[5,7,4,8,5]},
-  {id:46,name:"Gavin Robinson",party:"DUP",constituency:"Belfast East",role:"Party Leader",price:7.0,position:"front",form:[5,6,4,7,5]},
-  {id:47,name:"Jim Shannon",party:"DUP",constituency:"Strangford",role:"Backbencher",price:7.5,position:"mid",form:[8,10,9,11,7]},
-  {id:48,name:"Claire Hanna",party:"SDLP",constituency:"Belfast South and Mid Down",role:"Party Leader",price:6.5,position:"front",form:[5,6,4,5,6]},
-  {id:49,name:"Sorcha Eastwood",party:"Alliance",constituency:"Lagan Valley",role:"MP",price:6.0,position:"mid",form:[4,5,3,6,4]},
-  {id:50,name:"Jeremy Corbyn",party:"Independent",constituency:"Islington North",role:"Independent MP",price:8.0,position:"mid",form:[7,10,5,12,8]}
+  {id:1,name:"Keir Starmer",party:"Labour",constituency:"Holborn and St Pancras",role:"Prime Minister",slot:"pm",price:15.0,form:[12,15,8,20,11]},
+  {id:2,name:"Rachel Reeves",party:"Labour",constituency:"Leeds West and Pudsey",role:"Chancellor of the Exchequer",slot:"chancellor",price:13.0,form:[10,8,14,9,12]},
+  {id:3,name:"Angela Rayner",party:"Labour",constituency:"Ashton-under-Lyne",role:"Backbencher (Resigned)",slot:"backbench",price:9.0,form:[9,11,-10,3,2]},
+  {id:4,name:"David Lammy",party:"Labour",constituency:"Tottenham",role:"Deputy Prime Minister & Justice Secretary",slot:"justice",price:13.0,form:[7,9,11,14,13]},
+  {id:5,name:"Yvette Cooper",party:"Labour",constituency:"Pontefract, Castleford and Knottingley",role:"Foreign Secretary",slot:"foreign",price:12.0,form:[8,10,9,12,11]},
+  {id:6,name:"Wes Streeting",party:"Labour",constituency:"Ilford North",role:"Health Secretary",slot:"health",price:10.5,form:[11,7,13,9,8]},
+  {id:7,name:"Pat McFadden",party:"Labour",constituency:"Wolverhampton South East",role:"Backbencher",slot:"backbench",price:7.0,form:[5,7,6,4,3]},
+  {id:8,name:"Ed Miliband",party:"Labour",constituency:"Doncaster North",role:"Energy Secretary",slot:"energy",price:9.5,form:[8,6,10,7,9]},
+  {id:9,name:"Bridget Phillipson",party:"Labour",constituency:"Houghton and Sunderland South",role:"Education Secretary",slot:"education",price:9.0,form:[6,8,5,7,9]},
+  {id:10,name:"Lisa Nandy",party:"Labour",constituency:"Wigan",role:"Culture Secretary",slot:"culture",price:8.5,form:[5,7,6,4,8]},
+  {id:11,name:"Shabana Mahmood",party:"Labour",constituency:"Birmingham Ladywood",role:"Home Secretary",slot:"home",price:11.5,form:[4,6,9,12,10]},
+  {id:12,name:"John Healey",party:"Labour",constituency:"Rawmarsh and Conisbrough",role:"Defence Secretary",slot:"defence",price:8.5,form:[6,5,8,7,4]},
+  {id:13,name:"Hilary Benn",party:"Labour",constituency:"Leeds South",role:"Northern Ireland Secretary",slot:"ni",price:7.5,form:[4,3,5,6,4]},
+  {id:14,name:"Diane Abbott",party:"Labour",constituency:"Hackney North and Stoke Newington",role:"Backbencher",slot:"backbench",price:7.0,form:[3,8,2,10,5]},
+  {id:15,name:"Zarah Sultana",party:"Labour",constituency:"Coventry South",role:"Backbencher",slot:"backbench",price:6.5,form:[7,5,9,4,8]},
+  {id:51,name:"Liz Kendall",party:"Labour",constituency:"Leicester West",role:"Work and Pensions Secretary",slot:"work_pensions",price:9.5,form:[6,8,7,9,8]},
+  {id:52,name:"Peter Kyle",party:"Labour",constituency:"Hove and Portslade",role:"Business and Trade Secretary",slot:"business",price:9.0,form:[5,7,8,6,7]},
+  {id:53,name:"Steve Reed",party:"Labour",constituency:"Streatham and Croydon North",role:"Housing Secretary",slot:"housing",price:9.0,form:[6,5,8,7,9]},
+  {id:54,name:"Darren Jones",party:"Labour",constituency:"Bristol North West",role:"Chancellor of the Duchy of Lancaster",slot:"cabinet_office",price:9.5,form:[5,7,9,8,10]},
+  {id:55,name:"Jonathan Reynolds",party:"Labour",constituency:"Stalybridge and Hyde",role:"Chief Whip",slot:"chief_whip",price:8.5,form:[4,6,5,7,6]},
+  {id:56,name:"Nick Thomas-Symonds",party:"Labour",constituency:"Torfaen",role:"Paymaster General",slot:"paymaster",price:8.0,form:[5,6,4,7,5]},
+  {id:57,name:"James Murray",party:"Labour",constituency:"Ealing North",role:"Chief Secretary to the Treasury",slot:"chief_sec_treasury",price:8.5,form:[4,6,7,5,8]},
+  {id:58,name:"Emma Reynolds",party:"Labour",constituency:"Walsall and Bloxwich",role:"Environment Secretary",slot:"environment",price:8.5,form:[5,7,6,8,7]},
+  {id:16,name:"Kemi Badenoch",party:"Conservative",constituency:"North West Essex",role:"Leader of the Opposition",slot:"opposition_leader",price:13.5,form:[14,11,16,13,10]},
+  {id:17,name:"Rishi Sunak",party:"Conservative",constituency:"Richmond and Northallerton",role:"Backbencher",slot:"backbench",price:12.0,form:[5,3,4,2,6]},
+  {id:18,name:"James Cleverly",party:"Conservative",constituency:"Braintree",role:"Shadow Home Secretary",slot:"shadow_home",price:10.0,form:[8,9,7,10,6]},
+  {id:19,name:"Jeremy Hunt",party:"Conservative",constituency:"Godalming and Ash",role:"Backbencher",slot:"backbench",price:9.5,form:[6,4,7,5,8]},
+  {id:20,name:"Priti Patel",party:"Conservative",constituency:"Witham",role:"Shadow Foreign Secretary",slot:"shadow_foreign",price:8.5,form:[5,3,7,4,6]},
+  {id:21,name:"Suella Braverman",party:"Conservative",constituency:"Fareham and Waterlooville",role:"Backbencher",slot:"backbench",price:9.0,form:[8,12,6,10,9]},
+  {id:22,name:"Robert Jenrick",party:"Conservative",constituency:"Newark",role:"Shadow Chancellor",slot:"shadow_chancellor",price:10.5,form:[9,11,8,7,10]},
+  {id:23,name:"Mel Stride",party:"Conservative",constituency:"Central Devon",role:"Shadow Work and Pensions",slot:"shadow_work_pensions",price:7.5,form:[4,5,3,6,4]},
+  {id:24,name:"Andrew Mitchell",party:"Conservative",constituency:"Sutton Coldfield",role:"Shadow Defence Secretary",slot:"shadow_defence",price:7.0,form:[3,4,5,3,4]},
+  {id:25,name:"Penny Mordaunt",party:"Conservative",constituency:"Portsmouth North",role:"Backbencher",slot:"backbench",price:8.0,form:[5,6,4,7,5]},
+  {id:26,name:"Ed Davey",party:"Liberal Democrats",constituency:"Kingston and Surbiton",role:"Party Leader",slot:"party_leader",price:10.0,form:[10,12,8,14,11]},
+  {id:27,name:"Daisy Cooper",party:"Liberal Democrats",constituency:"St Albans",role:"Deputy Leader",slot:"deputy_leader",price:8.0,form:[7,6,8,5,9]},
+  {id:28,name:"Layla Moran",party:"Liberal Democrats",constituency:"Oxford West and Abingdon",role:"Foreign Affairs Spokesperson",slot:"spokesperson",price:7.5,form:[6,8,5,7,6]},
+  {id:29,name:"Munira Wilson",party:"Liberal Democrats",constituency:"Twickenham",role:"Education Spokesperson",slot:"spokesperson",price:7.0,form:[5,4,6,5,7]},
+  {id:30,name:"Tim Farron",party:"Liberal Democrats",constituency:"Westmorland and Lonsdale",role:"Backbencher",slot:"backbench",price:6.5,form:[4,6,3,5,7]},
+  {id:31,name:"Stephen Flynn",party:"SNP",constituency:"Aberdeen South",role:"Westminster Leader",slot:"party_leader",price:9.0,form:[9,11,7,10,8]},
+  {id:32,name:"Joanna Cherry",party:"SNP",constituency:"Edinburgh South West",role:"Backbencher",slot:"backbench",price:7.5,form:[6,8,10,5,7]},
+  {id:33,name:"Pete Wishart",party:"SNP",constituency:"Perth and Kinross-shire",role:"Backbencher",slot:"backbench",price:6.5,form:[4,5,3,6,4]},
+  {id:34,name:"Brendan O'Hara",party:"SNP",constituency:"Argyll, Bute and South Lochaber",role:"Backbencher",slot:"backbench",price:6.0,form:[3,4,5,3,4]},
+  {id:35,name:"Nigel Farage",party:"Reform UK",constituency:"Clacton",role:"Party Leader",slot:"party_leader",price:11.0,form:[15,8,18,5,12]},
+  {id:36,name:"Lee Anderson",party:"Reform UK",constituency:"Ashfield",role:"Backbencher",slot:"backbench",price:8.0,form:[9,6,12,4,10]},
+  {id:37,name:"Richard Tice",party:"Reform UK",constituency:"Boston and Skegness",role:"Backbencher",slot:"backbench",price:7.5,form:[6,5,8,4,7]},
+  {id:38,name:"Rupert Lowe",party:"Reform UK",constituency:"Great Yarmouth",role:"Backbencher",slot:"backbench",price:6.0,form:[3,5,4,6,3]},
+  {id:39,name:"Adrian Ramsay",party:"Green Party",constituency:"Waveney Valley",role:"Co-Leader",slot:"party_leader",price:8.5,form:[8,10,7,9,6]},
+  {id:40,name:"Carla Denyer",party:"Green Party",constituency:"Bristol Central",role:"Co-Leader",slot:"party_leader",price:8.0,form:[7,9,6,8,7]},
+  {id:41,name:"Sian Berry",party:"Green Party",constituency:"Brighton Pavilion",role:"Backbencher",slot:"backbench",price:7.0,form:[5,7,4,6,5]},
+  {id:42,name:"Ellie Shercliff",party:"Green Party",constituency:"North Herefordshire",role:"Backbencher",slot:"backbench",price:6.0,form:[3,4,5,3,4]},
+  {id:43,name:"Liz Saville Roberts",party:"Plaid Cymru",constituency:"Dwyfor Meirionnydd",role:"Westminster Leader",slot:"party_leader",price:7.0,form:[6,8,5,7,6]},
+  {id:44,name:"Ben Lake",party:"Plaid Cymru",constituency:"Ceredigion Preseli",role:"Backbencher",slot:"backbench",price:6.0,form:[4,5,3,6,4]},
+  {id:45,name:"Sammy Wilson",party:"DUP",constituency:"East Antrim",role:"Backbencher",slot:"backbench",price:6.5,form:[5,7,4,8,5]},
+  {id:46,name:"Gavin Robinson",party:"DUP",constituency:"Belfast East",role:"Party Leader",slot:"party_leader",price:7.0,form:[5,6,4,7,5]},
+  {id:47,name:"Jim Shannon",party:"DUP",constituency:"Strangford",role:"Backbencher",slot:"backbench",price:7.5,form:[8,10,9,11,7]},
+  {id:48,name:"Claire Hanna",party:"SDLP",constituency:"Belfast South and Mid Down",role:"Party Leader",slot:"party_leader",price:6.5,form:[5,6,4,5,6]},
+  {id:49,name:"Sorcha Eastwood",party:"Alliance",constituency:"Lagan Valley",role:"MP",slot:"backbench",price:6.0,form:[4,5,3,6,4]},
+  {id:50,name:"Jeremy Corbyn",party:"Independent",constituency:"Islington North",role:"Independent MP",slot:"backbench",price:8.0,form:[7,10,5,12,8]}
 ];
 
 const EVENTS = [
@@ -450,6 +467,55 @@ const EVENTS = [
 ];
 
 const PARTY_COLOURS = {"Labour":"#DC241F","Conservative":"#0087DC","Liberal Democrats":"#FAA61A","SNP":"#FFF95D","Reform UK":"#12B6CF","Green Party":"#6AB023","Plaid Cymru":"#005B54","DUP":"#D46A4C","Sinn Féin":"#326760","SDLP":"#2AA82C","Alliance":"#F6CB2F","Independent":"#CCCCCC"};
+
+const CABINET_SLOTS = {
+  pm:{label:"Prime Minister",side:"government",tier:1,great:true},
+  opposition_leader:{label:"Leader of the Opposition",side:"opposition",tier:1,great:true},
+  chancellor:{label:"Chancellor",side:"government",tier:1,great:true},
+  shadow_chancellor:{label:"Shadow Chancellor",side:"opposition",tier:1,great:true},
+  home:{label:"Home Secretary",side:"government",tier:1,great:true},
+  shadow_home:{label:"Shadow Home Secretary",side:"opposition",tier:1,great:true},
+  foreign:{label:"Foreign Secretary",side:"government",tier:1,great:true},
+  shadow_foreign:{label:"Shadow Foreign Secretary",side:"opposition",tier:1,great:true},
+  defence:{label:"Defence Secretary",side:"government",tier:1,great:true},
+  shadow_defence:{label:"Shadow Defence Secretary",side:"opposition",tier:1,great:true},
+  justice:{label:"Justice Secretary",side:"government",tier:2},
+  health:{label:"Health Secretary",side:"government",tier:2},
+  education:{label:"Education Secretary",side:"government",tier:2},
+  energy:{label:"Energy Secretary",side:"government",tier:2},
+  business:{label:"Business Secretary",side:"government",tier:2},
+  housing:{label:"Housing Secretary",side:"government",tier:2},
+  environment:{label:"Environment Secretary",side:"government",tier:2},
+  culture:{label:"Culture Secretary",side:"government",tier:2},
+  work_pensions:{label:"Work & Pensions",side:"government",tier:2},
+  ni:{label:"Northern Ireland Secretary",side:"government",tier:2},
+  cabinet_office:{label:"Cabinet Office",side:"government",tier:2},
+  chief_whip:{label:"Chief Whip",side:"government",tier:2},
+  chief_sec_treasury:{label:"Chief Secretary to Treasury",side:"government",tier:2},
+  paymaster:{label:"Paymaster General",side:"government",tier:2},
+  shadow_work_pensions:{label:"Shadow Work & Pensions",side:"opposition",tier:2},
+  party_leader:{label:"Party Leader",side:"crossbench",tier:1},
+  deputy_leader:{label:"Deputy Party Leader",side:"crossbench",tier:2},
+  spokesperson:{label:"Spokesperson",side:"crossbench",tier:2},
+  backbench:{label:"Backbencher",side:null,tier:3}
+};
+
+const GREAT_OFFICE_PAIRS = [
+  {short:"PM",name:"PM / Leader of Opposition",slots:["pm","opposition_leader"]},
+  {short:"Chancellor",name:"Chancellor / Shadow Chancellor",slots:["chancellor","shadow_chancellor"]},
+  {short:"Home",name:"Home / Shadow Home",slots:["home","shadow_home"]},
+  {short:"Foreign",name:"Foreign / Shadow Foreign",slots:["foreign","shadow_foreign"]},
+  {short:"Defence",name:"Defence / Shadow Defence",slots:["defence","shadow_defence"]}
+];
+
+function mpSide(mp){
+  const s=CABINET_SLOTS[mp.slot];
+  if(s&&s.side)return s.side;
+  if(mp.party==='Labour')return 'government';
+  if(mp.party==='Conservative')return 'opposition';
+  return 'crossbench';
+}
+function mpTier(mp){return (CABINET_SLOTS[mp.slot]||CABINET_SLOTS.backbench).tier}
 
 const SCORING_RULES = {
   vote_attended:{points:2,label:"Vote Attended"},missed_vote:{points:-1,label:"Missed Vote"},
@@ -587,6 +653,17 @@ function updateBudget(){
   el.classList.toggle('over-budget',rem<0);
   document.getElementById('pick-count').textContent=S.selected.length;
   document.getElementById('header-budget').textContent=`£${rem.toFixed(1)}m`;
+  updateOffices();
+}
+
+function updateOffices(){
+  const el=document.getElementById('offices-status');
+  if(!el)return;
+  const slots=new Set(S.selected.map(getMp).filter(Boolean).map(m=>m.slot));
+  el.innerHTML=GREAT_OFFICE_PAIRS.map(pair=>{
+    const filled=pair.slots.some(s=>slots.has(s));
+    return `<span class="office-badge ${filled?'filled':''}" title="${pair.name}">${filled?'✓ ':''}${pair.short}</span>`;
+  }).join('');
 }
 
 function confirmSquad(){
@@ -616,6 +693,10 @@ function validateSquad(){
   if(!parties.has('Conservative'))errs.push('Need at least 1 Conservative MP (Opposition)');
   const minor=['Liberal Democrats','SNP','Reform UK','Green Party','Plaid Cymru','DUP','Sinn Féin','SDLP','Alliance','Independent'];
   if(!minor.some(p=>parties.has(p)))errs.push('Need at least 1 minor party MP');
+  const slots=new Set(mps.map(m=>m.slot));
+  GREAT_OFFICE_PAIRS.forEach(pair=>{
+    if(!pair.slots.some(s=>slots.has(s)))errs.push(`Need at least 1 ${pair.name}`);
+  });
   return errs;
 }
 
@@ -674,17 +755,36 @@ function loadMyTeam(){
     <div class="summary-stat"><div class="stat-number">0/2</div><div class="stat-desc">Transfers</div></div>
     <div class="summary-stat"><div class="stat-number">${squad.length}</div><div class="stat-desc">Squad</div></div>`;
 
-  const front=squad.filter(m=>m.position==='front');
-  const mid=squad.filter(m=>m.position==='mid');
-  const back=squad.filter(m=>m.position==='back');
-  function row(mps){return mps.map(mp=>`
-    <div class="pitch-player" onclick="showDetail(${mp.id})">
-      ${mp.isCap?'<div class="captain-badge">C</div>':''}${mp.isVC?'<div class="captain-badge" style="background:var(--accent-blue);color:white">V</div>':''}
-      <div class="player-shirt" style="background:${mp.colour}">${mp.name.split(' ').map(n=>n[0]).join('')}</div>
-      <div class="player-name">${mp.name.split(' ').pop()}</div>
-      <div class="player-points">${mp.adj}pts</div>
-    </div>`).join('')}
-  document.getElementById('team-pitch').innerHTML=`<div class="pitch-row">${row(front)}</div><div class="pitch-row">${row(mid)}</div><div class="pitch-row">${row(back)}</div>`;
+  const withMeta=squad.map(mp=>({...mp,_side:mpSide(mp),_tier:mpTier(mp)}));
+  const gov=withMeta.filter(m=>m._side==='government').sort((a,b)=>a._tier-b._tier);
+  const opp=withMeta.filter(m=>m._side==='opposition').sort((a,b)=>a._tier-b._tier);
+  const cross=withMeta.filter(m=>m._side==='crossbench').sort((a,b)=>a._tier-b._tier);
+  function renderBenchMp(mp){return `<div class="chamber-mp" onclick="showDetail(${mp.id})">
+    ${mp.isCap?'<div class="captain-badge">C</div>':''}${mp.isVC?'<div class="captain-badge vc">V</div>':''}
+    <div class="mp-shirt" style="background:${mp.colour}">${mp.name.split(' ').map(n=>n[0]).join('')}</div>
+    <div class="mp-label">${mp.name.split(' ').pop()}</div>
+    <div class="mp-pts">${mp.adj}pts</div>
+  </div>`}
+  function benchSide(mps,label){
+    const front=mps.filter(m=>m._tier<=1);
+    const cabinet=mps.filter(m=>m._tier===2);
+    const back=mps.filter(m=>m._tier>=3);
+    let h=`<div class="chamber-side-label">${label}</div>`;
+    if(front.length)h+=`<div class="chamber-bench">${front.map(renderBenchMp).join('')}</div>`;
+    if(cabinet.length)h+=`<div class="chamber-bench">${cabinet.map(renderBenchMp).join('')}</div>`;
+    if(back.length)h+=`<div class="chamber-bench">${back.map(renderBenchMp).join('')}</div>`;
+    return h;
+  }
+  let chamberHtml=`<div class="chamber-speaker"><span class="chair-icon">⚖️</span>Speaker's Chair</div>
+    <div class="chamber-body">
+      <div class="chamber-side government">${benchSide(gov,'Government')}</div>
+      <div class="chamber-aisle"></div>
+      <div class="chamber-side opposition">${benchSide(opp,'Opposition')}</div>
+    </div>`;
+  if(cross.length){
+    chamberHtml+=`<div class="chamber-crossbench-wrap"><div class="chamber-side-label" style="text-align:center">Crossbenches</div><div class="chamber-crossbench">${cross.map(renderBenchMp).join('')}</div></div>`;
+  }
+  document.getElementById('team-chamber').innerHTML=chamberHtml;
 
   document.getElementById('points-breakdown').innerHTML=`<table class="leaderboard-table">
     <thead><tr><th>MP</th><th>Party</th><th>GW</th><th>x</th><th style="text-align:right">Pts</th></tr></thead>
